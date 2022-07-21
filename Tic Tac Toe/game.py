@@ -14,7 +14,7 @@ class Game:
     def createGame(name1 , name2 ):
         global game 
         if game is not None:
-            return game 
+            return game  
         
         player1 = Player(name1 , 'X')
         player2 = Player(name2 , 'O')
@@ -44,10 +44,10 @@ class Game:
 
             if res == "End" :
                 print(player , " Wins")
-                break 
+                return str(player.name , " Wins")
             elif res == "Draw" : 
                 print("Game Draw") 
-                break 
+                return "Game Draw"
             else :
                 continue 
                 
@@ -63,5 +63,4 @@ class Game:
 
 
 
-game1 = Game()
 

@@ -9,7 +9,7 @@ class Board:
                 ll.append(Cell())
             l.append(ll)
         
-        self.cells = l 
+        self.board = l 
 
 
     def rowCrossed(board):
@@ -24,8 +24,8 @@ class Board:
                 return True , board[0][i].mark
         return False
 
-    def diagonalCrossed(self):
-        board = self.board
+    def diagonalCrossed(board):
+        
         if (board[0][0].mark == board[1][1].mark and  board[1][1].mark == board[2][2].mark and board[0][0].mark != '-'):
             return True 
         if (board[0][2].mark == board[1][1].mark and board[1][1].mark == board[2][0].mark and board[0][2].mark != '-'):
@@ -38,9 +38,9 @@ class Board:
             for j in range(3) :
                 if(self.board[i][j].mark!='-'):
                     cnt+=1 
-        rowCheck = self.rowCrossed(self.board)
-        colCheck = self.columnCrossed(self.board)
-        diagCheck = self.diagonalCrossed(self.board)
+        rowCheck = Board.rowCrossed(self.board)
+        colCheck = Board.columnCrossed(self.board)
+        diagCheck = Board.diagonalCrossed(self.board)
 
         if rowCheck :
             return "End"
